@@ -21,7 +21,7 @@ Since rtl_433 is configured as the entrypoint of the container, any rtl_433 swit
 The container can be started with the following command:
 
 ```sh
-docker run -d --privileged --restart=unless-stopped --name SOME_CONTAINER_NAME rtl_433 RTL_433_SWITCHES
+docker run -d --privileged --restart=unless-stopped --name CONTAINER_NAME rtl_433 RTL_433_SWITCHES
 ```
 
 - `CONTAINER_NAME` should be set to a unique name for the container instance (e.g. *rtl_433*)
