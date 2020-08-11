@@ -14,7 +14,7 @@ docker build -t ds18b20-mqtt:latest .
 
 ## Usage
 
-The script the container uses takes the serial number of the temperature sensor to read from. Serial numbers of available 1-Wire devices can be found by running the following command on the Pi:
+The script the container uses takes the serial number of the temperature sensor to read from. Serial numbers of available 1-Wire devices can be found by running the following command on the host:
 
 ```sh
 ls /sys/bus/w1/devices/
@@ -29,5 +29,5 @@ docker run -d --privileged --restart=unless-stopped --name SOME_CONTAINER_NAME d
 - `CONTAINER_NAME` should be set to a unique name for the container instance (e.g. *ds18b20-outdoors*)
 - `SERIAL_NUMBER` must be set to the serial number of the DS18B20 temperature sensor to read from (e.g. *28-051760c6b1ff*)
 - `MQTT_HOST` must be set to the MQTT host to send temperature readings to
-- `--privileged` is required so the container can access the 1-Wire bus on the Pi
-- `--restart=unless-stopped` is recommended ensures the container restarts if the Pi (or Docker) is rebooted
+- `--privileged` is required so the container can access the 1-Wire bus on the host
+- `--restart=unless-stopped` is recommended ensures the container restarts if the host (or Docker) is rebooted
