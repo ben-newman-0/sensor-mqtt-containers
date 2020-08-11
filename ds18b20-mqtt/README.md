@@ -30,4 +30,4 @@ docker run -d --privileged --restart=unless-stopped --name SOME_CONTAINER_NAME d
 - `SERIAL_NUMBER` must be set to the serial number of the DS18B20 temperature sensor to read from (e.g. *28-051760c6b1ff*)
 - `MQTT_HOST` must be set to the MQTT host to send temperature readings to
 - `--privileged` is required so the container can access the 1-Wire bus on the host
-- `--restart=unless-stopped` is recommended ensures the container restarts if the host (or Docker) is rebooted
+- `--restart=unless-stopped` is recommended to ensure the container restarts if the host (or Docker) is rebooted
