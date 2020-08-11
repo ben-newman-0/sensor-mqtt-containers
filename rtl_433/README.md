@@ -16,7 +16,7 @@ docker build -t rtl_433:latest .
 
 ## Usage
 
-Since rtl_433 is configured as the entrypoint of the container, any rtl_433 switches can be passed when running the container.
+Since rtl_433 is configured as the entry point of the container, any rtl_433 switches can be passed when running the container.
 
 The container can be started with the following command:
 
@@ -25,6 +25,6 @@ docker run -d --privileged --restart=unless-stopped --name CONTAINER_NAME rtl_43
 ```
 
 - `CONTAINER_NAME` should be set to a unique name for the container instance (e.g. *rtl_433*)
-- `--privileged` is required so the container can access USB on the Pi
-- `--restart=unless-stopped` is recommended ensures the container restarts if the Pi (or Docker) is rebooted
+- `--privileged` is required so the container can access USB on the host
+- `--restart=unless-stopped` is recommended to ensure the container restarts if the host (or Docker) is rebooted
 - `RTL_433_SWITCHES` is optional and can be any switch(es) that can be passed to rtl_433
