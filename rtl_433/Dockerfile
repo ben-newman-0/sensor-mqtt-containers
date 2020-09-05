@@ -1,5 +1,5 @@
 ## Create build envrionment / build rtl_433
-FROM arm32v6/alpine:3.10.3 AS build
+FROM arm32v6/alpine:3.12.0 AS build
 
 # Install packages required to build rtl_433
 RUN apk add \
@@ -24,7 +24,7 @@ RUN make install
 ################################
 
 ## Create runtime envrionment and copy rtl_433 into it
-FROM arm32v6/alpine:3.10.3
+FROM arm32v6/alpine:3.12.0
 
 # Install rtl-sdr runtime packages required to run rtl_433
 RUN apk add librtlsdr --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted 
