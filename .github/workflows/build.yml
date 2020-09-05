@@ -1,4 +1,4 @@
-name: rtl_433-arm32v6
+name: Build
 
 on:
   push:
