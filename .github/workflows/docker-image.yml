@@ -24,8 +24,8 @@ jobs:
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
       
-    - name: Build the Docker image
-      run: docker buildx build --platform linux/arm/v6 --no-cache ./rtl_433
+    #- name: Build the Docker image
+      #run: docker buildx build --platform linux/arm/v6 --no-cache ./rtl_433
 
     - name: Build and push Docker images
       uses: docker/build-push-action@v1.1.0
@@ -37,7 +37,7 @@ jobs:
         # Server address of Docker registry. If not set then will default to Docker Hub
         registry: ghcr.io
         # Docker repository to tag the image with
-        repository: ben-newman-0
+        repository: ben-newman-0/sensor-mqtt-containers
         # Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
         #tags: ${{ github.sha }}
         # Automatically tags the built image with the git reference as per the readme
