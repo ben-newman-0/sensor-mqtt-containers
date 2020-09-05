@@ -6,8 +6,8 @@ RUN apk add \
     cmake \
     make \
     gcc \
-    musl-dev
-RUN apk add librtlsdr-dev --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+    musl-dev \
+    librtlsdr-dev
 
 # Copy rtl_433 src to container and create required folders
 WORKDIR /rtl_433
@@ -27,7 +27,7 @@ RUN make install
 FROM arm32v6/alpine:3.12.0
 
 # Install rtl-sdr runtime packages required to run rtl_433
-RUN apk add librtlsdr --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted 
+RUN apk add librtlsdr
 
 # Copy output from build container to runtime container
 WORKDIR /rtl_433
