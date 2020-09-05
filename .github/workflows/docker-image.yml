@@ -12,5 +12,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      
+    - name: Set up Docker Buildx
+      id: buildx
+      uses: crazy-max/ghaction-docker-buildx@v3
+    
+    - name: Available platforms
+      run: echo ${{ steps.buildx.outputs.platforms }}
+      
     - name: Build the Docker image
       run: docker buildx build --platform linux/arm/v6 --no-cache ./rtl_433
