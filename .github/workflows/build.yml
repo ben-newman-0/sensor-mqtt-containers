@@ -72,3 +72,36 @@ jobs:
         path: ./ds18b20-mqtt
         # Adds labels with git repository information to the built image
         add_git_labels: true
+
+  pi-thermals-mqtt-arm32v6:
+    name: Build pi-thermals-arm32v6 Docker image
+    
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Set up Docker Buildx
+      uses: crazy-max/ghaction-docker-buildx@v3
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v1.1.0
+      with:
+        # Username used to log in to a Docker registry. If not set then no login will occur
+        username: ben-newman-0
+        # Password or personal access token used to log in to a Docker registry. If not set then no login will occur
+        password: ${{ secrets.GH_PACKAGES_PAT }}
+        # Server address of Docker registry. If not set then will default to Docker Hub
+        registry: ghcr.io
+        # Docker repository to tag the image with
+        repository: ben-newman-0/pi-thermals-mqtt-arm32v6
+        # Automatically tags the built image with the git reference as per the readme
+        tag_with_ref: false
+        # Automatically tags the built image with the git short SHA as per the readme
+        tag_with_sha: true
+        # Path to the build context
+        path: ./pi-thermals-mqtt
+        # Adds labels with git repository information to the built image
+        add_git_labels: true
