@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Use the Pi's serial number as part of the MQTT topic
+# Credit to https://raspberrypi.stackexchange.com/a/2087
 SERIAL_PI="$(cat /proc/cpuinfo | grep Serial | cut -d ' ' -f 2)"
 echo "Using MQTT topic rpi/${SERIAL_PI}"
 
